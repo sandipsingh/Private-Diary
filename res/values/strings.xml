@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="app_name">PrivateDiary</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Add test entry</string>
+    <string name="title_activity_main">Private Diary</string>
+
+</resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    <PreferenceCategory
+   android:summary="Password information"
+   android:title="Login information" >
+
+        
+  <EditTextPreference
+     android:key="password"
+     android:summary="Change your password"
+     android:title="Password" />
+
+    <EditTextPreference
+     android:key="q"
+     android:summary="Will be asked in case you forget your password"
+     android:title="Security question" />
+    
+    <EditTextPreference 
+      android:key="a"
+     android:summary="Answer to security question"
+     android:title="Security question answer" />
+ </PreferenceCategory>
+
+</PreferenceScreen>

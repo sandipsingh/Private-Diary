@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+
+
+    <TextView
+        android:id="@+id/img_CalView"
+        android:layout_width="wrap_content"    
+        android:layout_height="wrap_content"
+        android:layout_weight="50"
+        android:background="@drawable/tab_calendar"
+        android:gravity="center"
+        android:scaleType="fitXY"
+        android:text="CalendarView"        
+        android:textColor="#FFFFFFFF" />     
+
+    <TextView
+        android:id="@+id/img_ListView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"   
+        android:layout_weight="50"
+        android:background="@drawable/tab_list"    
+        android:gravity="center"
+        android:scaleType="fitXY"
+        android:src="@drawable/tab_list"
+        android:text="List View"
+        android:textColor="#FFFFFFFF" />     
+
+</LinearLayout>

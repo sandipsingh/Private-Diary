@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="question_array">
+        <item>What is your pet\'s name?</item>
+        <item>What is your mother\'s name?</item>
+        <item>Where were you born?</item>
+    </string-array>
+</resources>

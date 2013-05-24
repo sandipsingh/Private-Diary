@@ -1,0 +1,107 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Rel"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFFFF"
+    android:orientation="vertical" >
+
+
+    <RelativeLayout
+        android:id="@+id/lay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/incl"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/textView1"
+        android:background="#00FFFFFF"
+        android:paddingLeft="20dip"
+        android:paddingRight="20dip" >
+
+
+        <ListView
+            android:id="@+id/list"
+            style="@style/AppTheme"
+            android:layout_width="match_parent"
+            android:layout_height="40dip"
+            android:layout_alignParentBottom="true"
+            android:layout_alignTop="@+id/empty"
+            android:background="#FFFFFFFF"
+            android:divider="#FFFFFFFF"
+            android:dividerHeight="10dip"
+            android:fadingEdgeLength="25dip"
+            android:requiresFadingEdge="vertical" >
+
+        </ListView>
+
+
+
+        <TextView
+            android:id="@+id/empty"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@+id/fwd"
+            android:background="#00FFFFFF"
+            android:gravity="center"
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FF000000" />
+
+        <ImageButton
+            android:id="@+id/fwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignRight="@+id/list"
+            android:layout_marginTop="2dip"
+            android:layout_weight="0.27"
+            android:background="#FFFFFFFF"
+            android:src="@drawable/fwd" />
+
+        <ImageButton
+            android:id="@+id/back"
+            style="@style/AppTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/list"
+            android:layout_alignTop="@+id/fwd"
+            android:background="#FFFFFFFF"
+            android:src="@drawable/back" />
+
+    </RelativeLayout>
+
+    <include
+        android:id="@+id/incl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        layout="@layout/button_row" />
+
+
+
+    <include
+        android:id="@+id/include1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        layout="@layout/topselection" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/include1"
+        android:layout_centerHorizontal="true"
+        android:layout_weight="0.27"
+        android:background="#FFFFFFFF"
+        android:layout_marginTop="22dip"
+        android:text="October"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#000000"
+        android:textSize="20dip" />
+
+</RelativeLayout>

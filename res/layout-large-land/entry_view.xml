@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFFFF" >
+
+    
+
+    <include
+        android:id="@+id/incl"
+        android:layout_width="wrap_content"
+        android:layout_height="40dip"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        layout="@layout/button_row" />
+
+    <FrameLayout
+        android:id="@+id/frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/shareButton"
+        android:layout_below="@+id/top"
+        android:background="@drawable/entry_bg"
+        android:foregroundGravity="center"
+        android:paddingBottom="66dip"
+        android:paddingLeft="45dip"
+        android:paddingRight="45dip"
+        android:paddingTop="66dip" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+            
+            <TextView
+                 android:id="@+id/day_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:background="#FFFFFFFF"
+                android:paddingLeft="5dip"
+                android:paddingRight="5dip"
+                android:inputType="number"
+                android:text="22"
+                android:textColor="#DD0000AA"
+                android:textSize="25dip"
+                ></TextView>
+            
+             <lock.diary.LinedEditText
+                android:id="@+id/editable_text"   
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"      
+                android:layout_alignParentBottom="true"    
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/day_text"  
+                android:autoLink="all"
+                android:background="#FFFFFFFF"
+                android:ems="10"
+                android:gravity="left"
+                android:inputType="textMultiLine"
+                android:minLines="3"
+                android:scrollHorizontally="false"
+                android:textColor="#FF000000" >
+
+                <requestFocus />
+            </lock.diary.LinedEditText>
+            
+             <TextView
+                 android:id="@+id/date_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/editable_text"
+                android:layout_toRightOf="@+id/day_text"
+                android:background="#FFFFFFFF"
+                android:text="October 2012"
+                android:textColor="#DD0000AA"
+                android:textSize="18dip" 
+                 ></TextView>
+
+             <ImageView
+                 android:id="@+id/datePicker"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_above="@+id/editable_text"
+                 android:layout_marginLeft="14dp"
+                 android:layout_toRightOf="@+id/date_text"
+                 android:src="@drawable/dropdown" />
+           
+               </RelativeLayout>
+    </FrameLayout>
+
+  <ImageView
+      android:id="@+id/btnSave"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentLeft="true"
+      android:layout_below="@+id/frame"
+      android:layout_marginLeft="60dp"
+      android:src="@drawable/save_btn" />
+
+  <ImageView
+      android:id="@+id/btnFont"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@+id/frame"
+      android:layout_marginLeft="28dp"
+      android:layout_toRightOf="@+id/btnSave"
+      android:src="@drawable/font_btn" />
+
+  <ImageButton
+      android:id="@+id/shareButton"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_above="@+id/incl"
+      android:layout_alignParentRight="true"
+      android:layout_marginBottom="24dp"
+      android:layout_marginRight="51dp"
+      android:background="#00FFFFFF"
+      android:scaleType="fitXY"
+      android:src="@drawable/share_button" />
+
+  <ImageButton
+      android:id="@+id/fileButton"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignTop="@+id/shareButton"
+      android:layout_marginRight="21dp"
+      android:layout_toLeftOf="@+id/shareButton"
+      android:background="#00FFFFFF"
+      android:scaleType="fitXY"
+      android:src="@drawable/file_button" />
+
+</RelativeLayout>
