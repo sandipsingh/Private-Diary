@@ -1,5 +1,6 @@
 package lock.diary;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -60,7 +61,7 @@ ImageView homeButton;
 	private String Month;
 	private int day;
 	static final int DATE_DIALOG_ID = 999;
-ImageView btnSave,btnFont;
+	ImageView btnSave,btnFont, imgSmiley;
 
 	final Context context=this;
 	TextWatcher watcher = new TextWatcher() { // TextWatcher for autosave
@@ -129,6 +130,33 @@ entry.text = s.toString();
 		  editText.setTypeface(font_1);
 	}
 
+	public void homeClick()
+	{
+		String month=updatedTime.substring(2, 5);
+		Log.d("UpdatedTime in home Button", 
+				updatedTime);
+		Log.d("month", month);
+		String monthin=String.valueOf(setmonth(month));
+
+		Log.d("monthin", monthin);
+		Intent i = new Intent(getBaseContext(), MainActivity.class);
+		i.putExtra("MONTH", monthin);
+		//data.open();
+		// ensure we don't save empty entries
+		/*	String aa= (String) dateText.getText();
+		String bb=aa.substring(0, 3); //month name
+		Log.d("MONTH NAME: ", bb);
+		
+		i.putExtra("MONTH_NAME", bb);
+		*/
+		if (entry.text.length() < 1) {
+		data.deleteEntry(entry.id);
+		}
+		startActivity(i);
+		//data.close();
+			
+	}
+	
 	public void onCreate(Bundle savedInstanceState) {
 	// App app = (App) getApplication();
 	long time = 0;
@@ -137,8 +165,35 @@ entry.text = s.toString();
 
 	setTheme(android.R.style.Theme_Light_NoTitleBar);
 
+//	Intent ii=getIntent();
+//	String date_is1=ii.getStringExtra("date_is");
+//	String month_is1=ii.getStringExtra("month_is");
+//	dayText.setText(date_is1);
+//	dateText.setText(month_is1);
+	
+	
+	
+//	Bundle extra1=getIntent().getExtras();
+//
+//	 if (extra1 != null && extra1.containsKey("plus1")
+//			&& savedInstanceState == null) {
+//			updatedTime=CalendarView.full_date;
+//			System.out.println("updatedTime is "+updatedTime);
+//			data.open();
+//			entry = new Entry("", updatedTime);
+//			time = System.currentTimeMillis();
+//			// todoAS
+//			data.insert(entry);
+//			
+//			App.currentId = entry.id;
+//
+//		data.close();
+//			System.out.println("time is1   " + time);
+//			System.out.println(time);
+//
+//		}
 	Bundle extras = getIntent().getExtras();
-btnSave=(ImageView)findViewById(R.id.btnSave);
+	btnSave=(ImageView)findViewById(R.id.btnSave);
 	btnSave.setOnClickListener(new OnClickListener(){
 
 		public void onClick(View arg0) {
@@ -186,7 +241,7 @@ long id = extras.getLong("ID");
 	else if (extras != null && extras.containsKey("plus")
 	&& savedInstanceState == null) {
 	updatedTime=getDateFromCurrenMills();
-	
+	System.out.println("updatedTime is "+updatedTime);
 	data.open();
 	entry = new Entry("", updatedTime);
 	time = System.currentTimeMillis();
@@ -200,11 +255,14 @@ data.close();
 	System.out.println(time);
 
 }
+	
+	
 
 	else {
 	data.open();
 	entry = data.getEntry(App.currentId);
-	time = entry.id;
+
+
 	App.currentId = time;
 	data.close();
 	System.out.println("time is2   " + time);
@@ -349,7 +407,8 @@ realDay = new char[i + 1];
 	homeButton.setOnClickListener(new OnClickListener() {
 
 	public void onClick(View v) {
-	String month=updatedTime.substring(3, 6); 
+	String month=updatedTime.substring(2, 6); 
+	month=month.replace(" ", "");
 	String monthin=String.valueOf(setmonth(month));
 	Intent i = new Intent(getBaseContext(), MainActivity.class);
 	i.putExtra("MONTH", monthin);
@@ -463,6 +522,16 @@ realDay = new char[i + 1];
 	fileButton = (ImageButton) findViewById(R.id.fileButton);
 	if (entry.filePath != null && entry.filePath.length() > 1) {
 		attachment=setImageToImageView(entry.filePath);
+		String file_p=entry.filePath;
+		File file =new File(file_p);
+		if(file.exists())
+		{
+		double bytes = file.length();
+		double kilobytes = (bytes / 1024);
+		
+		System.out.println("bytes : " + bytes);
+		System.out.println("kilobytes : " + kilobytes);
+		}
 		//attachment = BitmapFactory.decodeFile(filePath);
 		Bitmap scaledAttachment = Bitmap.createScaledBitmap(attachment,40, 40, true);
 		fileButton.setImageBitmap(scaledAttachment);
@@ -473,8 +542,7 @@ realDay = new char[i + 1];
 		public void onClick(View v) {
 
 			if (attachment != null) {
-				AlertDialog.Builder alert = new AlertDialog.Builder(v
-						.getContext());
+				AlertDialog.Builder alert = new AlertDialog.Builder(v.getContext());
 
 				// Set an EditText view to get user input
 				final ImageView input = new ImageView(v.getContext());

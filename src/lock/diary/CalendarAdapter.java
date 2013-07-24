@@ -1,25 +1,31 @@
 package lock.diary;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class CalendarAdapter extends BaseAdapter {
+public class CalendarAdapter extends BaseAdapter  implements OnClickListener{
 	static final int FIRST_DAY_OF_WEEK = 0; // Sunday = 0, Monday = 1
 	private Context mContext;
 	private java.util.Calendar month;
 	private Calendar selectedDate;
 	private ArrayList<Entry> items;
 	EntryData data;
-
+	LinearLayout lay;
+	String date11;
+	
 	public CalendarAdapter(Context c, Calendar monthCalendar) {
 		data = new EntryData(c);
 		month = monthCalendar;
@@ -56,6 +62,20 @@ public class CalendarAdapter extends BaseAdapter {
 		return 0;
 	}
 
+	public void onClick(View view) {
+		String date111=(String) ((TextView)view).getText();
+		 System.out.println("DATE PICKED IS this "+date111);
+//		selectedDayMonthYearButton.setText("Selected: " + date_month_year);
+//		Log.e("Selected date", date_month_year);
+//		try {
+//			Date parsedDate = dateFormatter.parse(date_month_year);
+//			Log.d(tag, "Parsed Date: " + parsedDate.toString());
+//
+//		} catch (ParseException e) {
+//			e.printStackTrace();
+//		}
+	}
+	
 	// create a new view for each item referenced by the Adapter
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View v = convertView;
@@ -67,7 +87,12 @@ public class CalendarAdapter extends BaseAdapter {
 			v = vi.inflate(R.layout.calendar_item, null);
 		}
 		dayView = (TextView) v.findViewById(R.id.date);
-
+		// date11=(String) dayView.getTag();
+		//String date11=dayView.getText();
+		 System.out.println("DATE PICKED IS "+date11);
+		dayView.setOnClickListener(this);
+		lay=(LinearLayout) v.findViewById(R.id.lay);
+	//	lay.setOnClickListener(this);
 		// disable empty days from the beginning
 		if (days[position].equals("")) {
 			dayView.setClickable(false);
@@ -95,6 +120,8 @@ public class CalendarAdapter extends BaseAdapter {
 		if (date.length() == 1) {
 			date = "0" + date;
 		}
+		
+		
 		String monthStr = "" + (month.get(Calendar.MONTH) + 1);
 		if (monthStr.length() == 1) {
 			monthStr = "0" + monthStr;

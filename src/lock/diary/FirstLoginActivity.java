@@ -104,7 +104,7 @@ public class FirstLoginActivity extends Activity
     public void onCreate(Bundle savedInstanceState) 
     {
     //	AndroidSDKProvider.initSDK(this);
-    //	AndroidSDKProvider.initSDK(this);
+   	//AndroidSDKProvider.initSDK(this);
         super.onCreate(savedInstanceState);
        
         requestWindowFeature(Window.FEATURE_NO_TITLE);

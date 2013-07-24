@@ -17,8 +17,10 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Toast;
 
 public class CalendarView extends Activity implements OnClickListener
 {
@@ -27,7 +29,7 @@ public class CalendarView extends Activity implements OnClickListener
 	public CalendarAdapter adapter;
 	public Handler handler;
 	public ArrayList<String> items;
-	
+//	static String date_is,month_is, full_date;
 	@Override
 	protected void onPause() 
 	{                                 
@@ -144,6 +146,30 @@ public class CalendarView extends Activity implements OnClickListener
 					int position, long id) 
 			{
 				TextView date = (TextView) v.findViewById(R.id.date);
+				
+//				 date_is=(String) date.getText();
+//				  month_is=(String) title.getText();
+//				System.out.println("GRID CLICK "+date_is+" "+month_is);
+//				ImageView iv=(ImageView) v.findViewById(R.id.date_icon);
+//				 full_date=date_is+" "+month_is;
+//				if(iv.getVisibility()==View.VISIBLE)
+//				{
+//					Intent intent = new Intent(CalendarView.this,MainActivity.class);
+//					intent.putExtra("day", Integer.parseInt(date.getText().toString()));
+//					intent.putExtra("year", month.get(Calendar.YEAR));
+//					intent.putExtra("MONTH", String.valueOf(month.get(Calendar.MONTH)));
+//					startActivity(intent);
+//				}
+//				else
+//				{
+//					Intent i = new Intent(CalendarView.this, NoteActivity.class);
+//					i.putExtra("plus1", true);
+//					
+//					startActivity(i);
+//					
+//				}
+				
+				
 				if (date instanceof TextView && !date.getText().equals("")) 
 				{
 					Intent intent = new Intent(CalendarView.this,MainActivity.class);
@@ -152,6 +178,7 @@ public class CalendarView extends Activity implements OnClickListener
 					intent.putExtra("MONTH", String.valueOf(month.get(Calendar.MONTH)));
 					startActivity(intent);
 				}
+				
 			}
 		});
 	}

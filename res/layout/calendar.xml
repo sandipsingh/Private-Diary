@@ -11,7 +11,7 @@
         layout="@layout/topselection" />
 
     <RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+        
         android:id="@+id/header"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -19,7 +19,7 @@
         android:orientation="horizontal" >
 
         <LinearLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
+            
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:gravity="left" >
@@ -43,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_toRightOf="@+id/previous"
+        
             android:gravity="center_horizontal"
             android:padding="5dp"
             android:paddingLeft="5dp"
@@ -52,7 +52,7 @@
             android:textStyle="bold" />
 
         <LinearLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
+           
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/title"
@@ -75,7 +75,7 @@
         
            </RelativeLayout>
  <LinearLayout 
-            xmlns:android="http://schemas.android.com/apk/res/android"
+           
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:background="#FFFFFFFF"
@@ -132,7 +132,7 @@
         </LinearLayout>
     
       <GridView
-        xmlns:android="http://schemas.android.com/apk/res/android"
+        
         android:id="@+id/gridview"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

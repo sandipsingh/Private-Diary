@@ -1,3 +1,4 @@
+
 package lock.diary;
 
 import java.io.ByteArrayOutputStream;

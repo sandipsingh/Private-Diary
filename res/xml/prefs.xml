@@ -4,7 +4,7 @@
    android:summary="Password information"
    android:title="Login information" >
 
-        
+        <intent android:action="your.action.string"/> 
   <EditTextPreference
      android:key="password"
      android:summary="Change your password"
@@ -19,6 +19,12 @@
       android:key="a"
      android:summary="Answer to security question"
      android:title="Security question answer" />
+    
+     <Preference 
+      android:key="inst"
+     android:summary="Check how this app works"
+     android:title="Instructions" />
+     
  </PreferenceCategory>
 
 </PreferenceScreen>
